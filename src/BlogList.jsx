@@ -114,7 +114,7 @@ function BlogList() {
         <button onClick={() => {setShowAddPostForm(!showAddPostForm);scrollToTop();}}>{postButton}</button>
         <button>Following</button>
         <button>Followers</button>
-        <button onClick={()=>navigate("/login")}>Log Out</button>
+        <button onClick={()=>navigate("/")}>Log Out</button>
       </div>
       <div className="blog-container">
         <h1 className="blog-title"> Whats Happening!!</h1>
