@@ -8,9 +8,9 @@ const UpdateUsers = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const submit = (e) => {
-    let Name = "Admin", Username = "ad ";
+    let Name = "Admin", Username = "ad";
     e.preventDefault();
-    axios.post("https://nebulla-backend.onrender.com/fetch", { email, password })
+    axios.post("http://localhost:7000/fetch", { email, password })
       .then(result => {
         Name = result.data.name;
         Username = result.data.userName;

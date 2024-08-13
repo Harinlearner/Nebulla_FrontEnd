@@ -5,15 +5,16 @@ import { Navigate, useNavigate } from 'react-router-dom';
 
 function BlogList() {
   let localUserData=JSON.parse(localStorage.getItem('userData'));
-  // let localName=localUserData.Name;
   let localUserName=localUserData.Username;
+  let cto="";
   const [blogs, setBlogs] = useState([]);
   const [postButton, setPostButton] = useState("");
   const [username, setUser] = useState(localUserName);
   const [image, setImage] = useState("");
   const [expandedBlogId, setExpandedBlogId] = useState(null);
   const [showAddPostForm, setShowAddPostForm] = useState(false);
-  const [newPost, setNewPost] = useState({ author: '', content: '', image: '' });
+  const [newPost, setNewPost] = useState({ author: '', content: '', image: ''});
+
   const navigate=useNavigate();
   useEffect(() =>  {
     if(!showAddPostForm)
@@ -22,9 +23,8 @@ function BlogList() {
     }
     else{
       setPostButton("Exit post");
-      
     }
-    axios.get('https://nebulla-backend.onrender.com/blogs')
+    axios.get('http://localhost:7000/blogs')
     .then(response => {
       setBlogs(response.data);
     })
@@ -32,7 +32,7 @@ function BlogList() {
     }, [showAddPostForm]);
     
   const handleLike = (id) => {
-    axios.post(`https://nebulla-backend.onrender.com/blogs/${id}/like`)
+    axios.post(`http://localhost:7000/blogs/${id}/like`)
       .then(response => {
         setBlogs(prevBlogs =>
           prevBlogs.map(blog => blog._id === id ? { ...blog, likes: response.data.likes } : blog)
@@ -42,7 +42,7 @@ function BlogList() {
     };
 
   const handleComment = (id, comment) => {
-    axios.post(`https://nebulla-backend.onrender.com/blogs/${id}/comment`, comment)
+    axios.post(`http://localhost:7000/blogs/${id}/comment`, comment)
       .then(response => {
         setBlogs(prevBlogs =>
           prevBlogs.map(blog => blog._id === id ? { ...blog, comments: response.data } : blog)
@@ -56,10 +56,10 @@ function BlogList() {
   };  
   const handleAddPost = (e) => {
     e.preventDefault();
-    axios.post('https://nebulla-backend.onrender.com/blogs', { ...newPost, image })
+    axios.post('http://localhost:7000/blogs', { ...newPost, image})
       .then(response => {
         setBlogs([response.data, ...blogs]);
-        setNewPost({ author: '', content: '', image: '' });
+        setNewPost({ author: '', content: '', image: ''});
         setImage(""); 
         setShowAddPostForm(false);
       })
@@ -73,7 +73,7 @@ function BlogList() {
     reader.onload = () => {
       console.log(reader.result);
       setImage(reader.result);
-      setNewPost({ ...newPost, image: reader.result }); // Add base64 image to newPost state
+      setNewPost({ ...newPost, image: reader.result}); 
     };
     reader.onerror = error => {
       console.log("Error ", error);
@@ -83,7 +83,18 @@ function BlogList() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-
+  
+     
+  function tit(author)
+  {
+    if(author=="Harin")
+    {
+      cto="*CEO"
+    }
+    else{
+      cto="";
+    }
+  }
   return (
     <div className="page-container">
       <div className="sidebar">
@@ -92,17 +103,17 @@ function BlogList() {
         <h1>Nebulla</h1>
         </center>
         <button onClick={scrollToTop}>Home</button>
-        <button onClick={() => setShowAddPostForm(!showAddPostForm)}>{postButton}</button>
+        <button onClick={() => {setShowAddPostForm(!showAddPostForm);scrollToTop();}}>{postButton}</button>
         <button>Following</button>
         <button>Followers</button>
         <button onClick={()=>navigate("/login")}>Log Out</button>
       </div>
       <div className="blog-container">
         <h1 className="blog-title"> Whats Happening!!</h1>
-        <div className='usernames'>{username}</div>
+        <div className='usernames'>{username}{}</div>
         {showAddPostForm && (
           <form onSubmit={handleAddPost} className="add-post-form">
-            <h2 style={{color:"white"}}>@{newPost.author=username}</h2>
+            <h2 style={{color:"white"}} onClick={tit(username)}>@{newPost.author=username}{" "+cto}</h2>
             {/* <input
               type="text"
               name="author"
@@ -116,7 +127,7 @@ function BlogList() {
               name="content"
               placeholder="Your blog post"
               value={newPost.content}
-              onChange={(e) => setNewPost({ ...newPost, content: e.target.value })}
+              onChange={(e) => setNewPost({ ...newPost, content: e.target.value,cto })}
               required
               className="post-input"
             />
@@ -132,6 +143,7 @@ function BlogList() {
               <div className="blog-author">
                 <img src={"https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg"} alt="avatar" className="avatar" />
                 <h3>{blog.author}</h3>
+                <h5 className="cst" onClick={tit(blog.author)}>{cto}</h5>
               </div>
               <p className="blog-content">{blog.content}</p>
               {blog.image && <img src={blog.image} alt="blog visual" className="postImage" />}
@@ -168,7 +180,7 @@ function BlogList() {
                     form.reset();
                   }} className="comment-form">
                     {/* <input type="text" name="user" placeholder="Your name" required className="comment-input" /> */}
-                    <h4 style={{color:"white"}}>@{username}</h4>
+                    <h4 style={{color:"white"}} onClick={tit(username)}>@{username}{" "+cto}</h4>
                     <input type="text" name="text" placeholder="Your comment" required className="comment-input" />
                     <button type="submit" className="comment-button">Add Comment</button>
                   </form>

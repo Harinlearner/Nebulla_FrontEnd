@@ -11,14 +11,21 @@ const UpdateUsers = () => {
     const navigate = useNavigate();
     const submit = (e) => {
         e.preventDefault();
-        axios.post("https://nebulla-backend.onrender.com/create", { name, userName, password, email })
+        let Name = "Admin", Username = "ad ";
+        axios.post("http://localhost:7000/create", { name, userName, password, email })
             .then(result => {
-                console.log(result);
-                navigate("/login")
+                Name = name;
+                Username = userName;
+                let userData = {
+                Name,
+                Username,
+                };
+                localStorage.setItem('userData', JSON.stringify(userData));
+                navigate("/main");
             })
             .catch((error) => {
                 window.alert("Redirecting to Login");
-                navigate("/login")
+                navigate("/")
             });
     }
     return (
