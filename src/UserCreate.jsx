@@ -11,7 +11,7 @@ const UpdateUsers = () => {
     const navigate = useNavigate();
     const submit = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:7000/create", { name, userName, password, email })
+        axios.post("https://nebulla-backend.onrender.com/create", { name, userName, password, email })
             .then(result => {
                 console.log(result);
                 navigate("/main")
