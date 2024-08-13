@@ -12,7 +12,7 @@ const UpdateUsers = () => {
     const submit = (e) => {
         e.preventDefault();
         let Name = "Admin", Username = "ad ";
-        axios.post("http://localhost:7000/create", { name, userName, password, email })
+        axios.post("https://nebulla-backend.onrender.com/create", { name, userName, password, email })
             .then(result => {
                 Name = name;
                 Username = userName;

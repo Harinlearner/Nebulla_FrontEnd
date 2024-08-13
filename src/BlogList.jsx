@@ -24,7 +24,7 @@ function BlogList() {
     else{
       setPostButton("Exit post");
     }
-    axios.get('http://localhost:7000/blogs')
+    axios.get('https://nebulla-backend.onrender.com/blogs')
     .then(response => {
       setBlogs(response.data);
     })
@@ -32,7 +32,7 @@ function BlogList() {
     }, [showAddPostForm]);
     
   const handleLike = (id) => {
-    axios.post(`http://localhost:7000/blogs/${id}/like`)
+    axios.post(`https://nebulla-backend.onrender.com/blogs/${id}/like`)
       .then(response => {
         setBlogs(prevBlogs =>
           prevBlogs.map(blog => blog._id === id ? { ...blog, likes: response.data.likes } : blog)
@@ -42,7 +42,7 @@ function BlogList() {
     };
 
   const handleComment = (id, comment) => {
-    axios.post(`http://localhost:7000/blogs/${id}/comment`, comment)
+    axios.post(`https://nebulla-backend.onrender.com/blogs/${id}/comment`, comment)
       .then(response => {
         setBlogs(prevBlogs =>
           prevBlogs.map(blog => blog._id === id ? { ...blog, comments: response.data } : blog)
@@ -56,7 +56,7 @@ function BlogList() {
   };  
   const handleAddPost = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:7000/blogs', { ...newPost, image})
+    axios.post('https://nebulla-backend.onrender.com/blogs', { ...newPost, image})
       .then(response => {
         setBlogs([response.data, ...blogs]);
         setNewPost({ author: '', content: '', image: ''});
@@ -89,7 +89,15 @@ function BlogList() {
   {
     if(author=="Harin")
     {
-      cto="*CEO"
+      cto="*CTO"
+    }
+    else if(author=="Jpnace")
+    {
+      cto="*COO"
+    }
+    else if(author=="Guhan")
+    {
+      cto="*CMO"
     }
     else{
       cto="";

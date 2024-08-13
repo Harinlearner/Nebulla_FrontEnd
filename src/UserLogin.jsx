@@ -10,7 +10,7 @@ const UpdateUsers = () => {
   const submit = (e) => {
     let Name = "Admin", Username = "ad";
     e.preventDefault();
-    axios.post("http://localhost:7000/fetch", { email, password })
+    axios.post("https://nebulla-backend.onrender.com/fetch", { email, password })
       .then(result => {
         Name = result.data.name;
         Username = result.data.userName;
