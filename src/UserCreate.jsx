@@ -14,7 +14,7 @@ const UpdateUsers = () => {
         axios.post("https://nebulla-backend.onrender.com/create", { name, userName, password, email })
             .then(result => {
                 console.log(result);
-                navigate("/main")
+                navigate("/login")
             })
             .catch((error) => {
                 window.alert("Redirecting to Login");
