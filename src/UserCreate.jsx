@@ -55,7 +55,7 @@ const UpdateUsers = () => {
                     </div>
                     <button type="submit">Register</button>
                 </form>
-                <p style={{color:"black"}}>Already have an account? <Link to={"login"}>Login</Link></p>
+                <p style={{color:"black"}}>Already have an account? <Link to={"/"}>Login</Link></p>
             </div>
             <div className='body'>
                 <img style={{ height: "710px", width: "auto" }} src='https://images.unsplash.com/photo-1531950769935-13a6e50e10e1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'></img>
