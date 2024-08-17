@@ -12,6 +12,7 @@
 body{
     background-color: #000000;
 }
+
 .container1{
     margin-left: 10px;
     background-color: rgb(255, 255, 255);
@@ -22,6 +23,22 @@ body{
     width: 450px;
     height: 640px;
     text-align: center;
+}
+
+
+@media  screen and (max-width:376px) {
+    .container1{
+        margin-left: 10px;
+        background-color: rgb(255, 255, 255);
+        padding: 0px;
+        padding-top: 50px;
+        border-radius: 8px;
+        margin-right: 20px;
+        width: 320px;
+        height: 560px;
+        margin-top: 10px;
+        text-align: center;
+    }
 }
 
 h2 {
@@ -107,6 +124,24 @@ body{
     height: 520px;
     text-align: center;
 }
+
+@media screen and (max-width:376px){
+    .container2{
+        margin-top: 30px;
+        margin-left: 10px;
+        background-color: rgb(255, 255, 255);
+        padding: 10px;
+        padding-top: 100px;
+        border-radius: 8px;
+        width: 320px;
+        height: 450px;
+        text-align: center;
+        margin-right: 20px;
+    }
+}
+
+
+
 
 h2 {
     margin-bottom: 20px;
