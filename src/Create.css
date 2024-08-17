@@ -34,7 +34,7 @@ body{
         padding-top: 50px;
         border-radius: 8px;
         margin-right: 25px;
-        width: 360px;
+        width: 320px;
         height: 560px;
         margin-top: 10px;
         text-align: center;
@@ -128,15 +128,15 @@ body{
 @media screen and (max-width:450px){
     .container2{
         margin-top: 30px;
-        margin-left: 15px;
+        margin-left: 10px;
         background-color: rgb(255, 255, 255);
         padding: 10px;
         padding-top: 100px;
         border-radius: 8px;
-        width: 360px;
+        width: 320px;
         height: 450px;
         text-align: center;
-        margin-right: 25px;
+        margin-right: 95px;
     }
 }
 
