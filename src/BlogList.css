@@ -187,7 +187,7 @@ body {
 {
    
 .sidebar {
-  width: 110px;
+  width: 100px;
   background-color: rgb(27, 24, 24);  
   padding: 20px;
   padding-top: 80px;
@@ -227,6 +227,10 @@ body {
   margin-left: 140px;  
   padding: 20px;
 
+}
+.nebulla
+{
+  font-size: 15px;
 }
 .usernames
 {

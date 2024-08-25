@@ -103,7 +103,7 @@ function BlogList() {
        <div className="sidebar">
         <center>
           <div className='logomain'></div>
-          <h1>Nebulla</h1>
+          <h1 className='nebulla'>Nebulla</h1>
         </center>
         <button onClick={scrollToTop}>Home</button>
         <button onClick={() => { setShowAddPostForm(!showAddPostForm); scrollToTop(); }}>{postButton}</button>
