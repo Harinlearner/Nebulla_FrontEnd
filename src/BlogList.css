@@ -13,7 +13,6 @@ body {
   background-color: rgb(27, 24, 24);  
   padding: 20px;
   padding-top: 80px;
- 
   display: flex;
   flex-direction: column;
   gap: 40px; 
@@ -23,6 +22,7 @@ body {
   left: 0;
   bottom: 0;
 }
+
 
 .sidebar button {
   background-color: transparent;  
@@ -45,11 +45,14 @@ body {
   width:fit-content;
 }
 
+
 .blog-container {
   flex-grow: 1;
   margin-left: 220px;  
   padding: 20px;
+
 }
+
 
 .add-post-form,
 .comment-form {
@@ -173,4 +176,64 @@ body {
   top:2px;
   left:4px;
   color:chartreuse;
+}
+
+@media screen and (max-width:476px)
+{
+   
+.sidebar {
+  width: 100px;
+  background-color: rgb(27, 24, 24);  
+  padding: 20px;
+  padding-top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px; 
+  position: fixed;
+  border-right: 1px solid;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+
+.sidebar button {
+  background-color: transparent;  
+  color: white;  
+  border: none;  
+  padding: 10px 15px ;
+  margin-top: -5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: left;
+  width:fit-content;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.2s;
+}
+
+.sidebar button:hover {
+  background-color: rgba(212, 198, 198, 0.295);  
+  width:fit-content;
+}
+.blog-container {
+  flex-grow: 1;
+  margin-left: 140px;  
+  padding: 20px;
+
+}
+.usernames
+{
+  float: right;
+  border-style: solid;
+  width: fit-content;
+  border-radius: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  font-size: 30px;
+  background-color: #cccccc6d;
+  margin-top: -110px;
+}
 }
