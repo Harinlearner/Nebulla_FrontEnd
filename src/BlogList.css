@@ -178,6 +178,11 @@ body {
   color:chartreuse;
 }
 
+
+
+
+
+/* -------------------------------------------------mobile compatible------------------------------------- */
 @media screen and (max-width:476px)
 {
    
@@ -235,5 +240,15 @@ body {
   font-size: 30px;
   background-color: #cccccc6d;
   margin-top: -110px;
+}
+.liky{
+  background-image: url("like.png");
+  width: 20px;
+  height: 20px;
+  position:relative;
+  top:16px;
+  right:6px;
+  background-size: cover; 
+  background-position: center; 
 }
 }

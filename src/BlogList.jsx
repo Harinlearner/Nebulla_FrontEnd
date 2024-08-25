@@ -153,9 +153,10 @@ function BlogList() {
               <div className="blog-footer">
                 <span className="blog-date">{new Date(blog.createdAt).toLocaleString()}</span>
                 <div className="blog-actions">
+                    <i className={`fas fa-heart ${blog.likes > 0 ? 'liked' : ''}`}></i>
                   <button className="like-button" onClick={() => handleLike(blog._id)}>
                     <div className='liky'></div>
-                    <i className={`fas fa-heart ${blog.likes > 0 ? 'liked' : ''}`}></i> {blog.likes}
+                    {blog.likes}
                   </button>
                   <button className="comment-button" onClick={() => toggleComments(blog._id)}>
                     {expandedBlogId === blog._id ? 'Hide Comments' : 'Show Comments'}
