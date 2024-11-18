@@ -4,8 +4,15 @@ import './BlogList.css';
 import { Navigate, useNavigate } from 'react-router-dom';
 
 function BlogList() {
-  let localUserData = JSON.parse(localStorage.getItem('userData'));
-  let localUserName = localUserData.Username;
+  let localUserData = "admin";
+  let localUserName = "Admin";
+  try {
+    localUserData = JSON.parse(localStorage.getItem('userData'));
+    localUserName = localUserData.Username;
+  }
+  catch {
+    console.log("Direct access");
+  }
   let cto = "";
   const [blogs, setBlogs] = useState([]);
   const [postButton, setPostButton] = useState("");
@@ -100,7 +107,7 @@ function BlogList() {
   }
   return (
     <div className="page-container">
-       <div className="sidebar">
+      <div className="sidebar">
         <center>
           <div className='logomain'></div>
           <h1 className='nebulla'>Nebulla</h1>
@@ -153,7 +160,7 @@ function BlogList() {
               <div className="blog-footer">
                 <span className="blog-date">{new Date(blog.createdAt).toLocaleString()}</span>
                 <div className="blog-actions">
-                    <i className={`fas fa-heart ${blog.likes > 0 ? 'liked' : ''}`}></i>
+                  <i className={`fas fa-heart ${blog.likes > 0 ? 'liked' : ''}`}></i>
                   <button className="like-button" onClick={() => handleLike(blog._id)}>
                     <div className='liky'></div>
                     {blog.likes}

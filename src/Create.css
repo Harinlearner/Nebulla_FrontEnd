@@ -201,10 +201,10 @@ a:hover {
 }
 
 .logo {
-    background-image: url("logo.jpg");
+    background-image: url("wb-logo.jpg");
     width: 40px;
     height: 40px;
-    background-size: cover; 
+    background-size: 60px; 
     background-position: center; 
 }
 

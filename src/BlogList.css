@@ -137,8 +137,8 @@ body {
 
 .logomain
 {
- 
-  background-image: url("https://static.vecteezy.com/system/resources/previews/010/287/607/non_2x/pulpit-icon-in-trendy-flat-style-isolated-on-white-background-speech-pulpit-symbol-for-web-and-mobile-applications-free-vector.jpg");
+  background-image: url("bw-logo.jpg");
+  /* background-image: url("https://static.vecteezy.com/system/resources/previews/010/287/607/non_2x/pulpit-icon-in-trendy-flat-style-isolated-on-white-background-speech-pulpit-symbol-for-web-and-mobile-applications-free-vector.jpg"); */
   width: 40px;
   height: 40px;
   border:1px solid;
