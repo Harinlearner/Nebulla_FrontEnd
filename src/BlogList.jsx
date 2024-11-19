@@ -114,8 +114,8 @@ function BlogList() {
         </center>
         <button onClick={scrollToTop}>Home</button>
         <button onClick={() => { setShowAddPostForm(!showAddPostForm); scrollToTop(); }}>{postButton}</button>
-        <button>Following</button>
-        <button>Followers</button>
+        {/* <button>Following</button>
+        <button>Followers</button> */}
         <button onClick={() => navigate("/")}>Log Out</button>
       </div>
       <div className="blog-container">
