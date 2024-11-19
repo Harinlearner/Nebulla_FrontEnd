@@ -165,6 +165,7 @@ body {
   background-image: url("like.png");
   width: 20px;
   height: 20px;
+ 
   position:relative;
   top:16px;
   background-size: cover; 
@@ -255,4 +256,17 @@ body {
   background-size: cover; 
   background-position: center; 
 }
+.blog-date{
+  margin-top: 30px;
+  font-size: small;
+}
+.com{
+   display: flex-left;
+   margin-left: -15px;
+   margin-right: 5px;
+   font-size: 10px;
+   margin-top: -5px;
+   margin-bottom: -5px;
+}
+
 }

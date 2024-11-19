@@ -163,10 +163,10 @@ function BlogList() {
                   <i className={`fas fa-heart ${blog.likes > 0 ? 'liked' : ''}`}></i>
                   <button className="like-button" onClick={() => handleLike(blog._id)}>
                     <div className='liky'></div>
-                    {blog.likes}
+                    _{blog.likes}
                   </button>
                   <button className="comment-button" onClick={() => toggleComments(blog._id)}>
-                    {expandedBlogId === blog._id ? 'Hide Comments' : 'Show Comments'}
+                    <p className="com">{expandedBlogId === blog._id ? 'Hide Comments' : 'Show Comments'}</p>
                   </button>
                 </div>
               </div>
